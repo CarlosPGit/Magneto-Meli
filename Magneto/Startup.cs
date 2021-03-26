@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Magneto.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -25,7 +24,7 @@ namespace Magneto
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<MagnetoContext>(_ => new MagnetoContext(Configuration["ConnectionStrings:Default"]));
+            services.AddTransient<Services.MagnetoContext>(_ => new Services.MagnetoContext(Configuration["ConnectionStrings:Default"]));
             services.AddControllers();
         }
 
