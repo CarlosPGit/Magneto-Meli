@@ -29,7 +29,7 @@ namespace Magneto.Controllers
             StatsViewModel stats = new StatsViewModel();
             stats.count_mutant_dna = list.Where(m => m.mutant).Count();
             stats.count_human_dna = list.Where(m => !m.mutant).Count();
-            stats.ratio = list.Count() > 0 ? Math.Round(Convert.ToDouble(stats.count_mutant_dna) / Convert.ToDouble(list.Count()), 2) : 0;
+            stats.ratio = stats.count_human_dna > 0 ? Math.Round(Convert.ToDouble(stats.count_mutant_dna) / Convert.ToDouble(stats.count_human_dna), 2) : 0;
             
             return stats;
         }
